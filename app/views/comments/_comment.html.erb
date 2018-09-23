@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2 class="page-header">Comments</h2>
+        <section class="comment-list">
+          <!-- First Comment -->
+          <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+              <figure class="thumbnail">
+                <img class="img-responsive" src="http://www.tangoflooring.ca/wp-content/uploads/2015/07/user-avatar-placeholder.png" />
+                <figcaption class="text-center"><%= comment.user.name%></figcaption>
+              </figure>
+            </div>
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i>
+                    <%= comment.date %>
+                    
+                    </time>
+                  </header>
+                  <div class="comment-post">
+                    <p>
+                      <%= comment.text %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% if comment.user.email == current_user.email %>
+              <%= link_to 'Destroy',  post_comment_path(@post, comment),
+              data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger" %>
+            <% end %>
+          </article>
+  </div>
+</div>

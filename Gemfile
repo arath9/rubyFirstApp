@@ -14,6 +14,7 @@ gem 'pg'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
+gem 'simple_form'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Use Puma as the app server

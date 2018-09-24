@@ -9,6 +9,10 @@
     <%= form.label :content %><br>
     <%= form.text_area :content %>
   </p>
+
+  <p>
+    <%= form.collection_select :category_id, Category.all, :id, :description %>
+  </p>
  
   <p>
     <%= form.submit %>

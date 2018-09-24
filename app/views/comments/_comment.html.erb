@@ -16,14 +16,18 @@
                 <div class="panel-body">
                   <header class="text-left">
                     <time class="comment-date" datetime="16-12-2014 01:05"><i class="fa fa-clock-o"></i>
-                    <%= comment.date %>
-                    
+                    <%= comment.date %>                    
                     </time>
                   </header>
                   <div class="comment-post">
                     <p>
                       <%= comment.text %>
                     </p>
+                    <% if comment.user.email == current_user.email %>
+                        <p>
+
+                        </p>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -31,6 +35,7 @@
             <% if comment.user.email == current_user.email %>
               <%= link_to 'Destroy',  post_comment_path(@post, comment),
               data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger" %>
+              <%= link_to 'Edit Comment',edit_post_comment_path(@post, comment), class:"btn btn-info" %>
             <% end %>
           </article>
   </div>

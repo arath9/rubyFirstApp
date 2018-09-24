@@ -12,12 +12,24 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     @comment.user = current_user
-    if @comment.save
-      puts "entre"
-      redirect_to post_path(@post)
-    else
-      puts "no entre"
-    end
+    @comment.save
+    redirect_to post_path(@post)
+end
+
+def edit
+  @post = Post.find(params[:post_id])
+  @comment = @post.comments.find(params[:id])
+end
+
+ def update
+  puts "Entre"
+  @post = Post.find(params[:post_id])
+  @comment = @post.comments.find(params[:id])
+  if @comment.update(comment_params)
+    redirect_to post_path(@post)
+  else
+    render 'edit'
+  end
 end
 
 def destroy

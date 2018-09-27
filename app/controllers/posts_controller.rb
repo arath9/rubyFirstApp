@@ -37,6 +37,7 @@ class PostsController < ApplicationController
     @post.date = Date.new
     @post.user = current_user
       if @post.save
+        @user = @post.user
         redirect_to @post
       else
         render 'new'

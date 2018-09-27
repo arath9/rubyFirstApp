@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @commentUser.name %>  commented on your post!</h1>
+    <p>
+      Hi <%= @postUser.name %>,<br>
+    </p>
+    <p>
+      Just to let you know that you have a new comment:
+    </p>
+    <p>
+      <%= @comment.text%>
+    </p>
+    <p>Have a great day!</p>
+  </body>
+</html>

@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
     @comment.user = current_user
     @comment.save
+    CommentMailer.comment_email(@post.user,@comment,current_user).deliver
     redirect_to post_path(@post)
 end
 
@@ -22,7 +23,6 @@ def edit
 end
 
  def update
-  puts "Entre"
   @post = Post.find(params[:post_id])
   @comment = @post.comments.find(params[:id])
   if @comment.update(comment_params)

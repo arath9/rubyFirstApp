@@ -13,6 +13,8 @@ gem 'pg'
 #bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+#figaro
+gem "figaro"
 
 gem 'simple_form'
 # Use jquery as the JavaScript library

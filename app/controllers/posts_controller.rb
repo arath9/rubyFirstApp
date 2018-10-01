@@ -44,6 +44,11 @@ class PostsController < ApplicationController
       end
     end
 
+  def send_report
+    UserMailer.user_report(current_user).deliver!
+    redirect_to posts_path
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :content,:category_id)

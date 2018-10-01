@@ -1,0 +1,23 @@
+Hi, Here is your daily report:  <%= @user.name %> !
+===============================================
+ 
+Posts: 
+
+<% @posts.each do |post| %>
+
+Title: <%= post.title %>
+Content: <% post.content %>
+<% end %>
+
+Comments: 
+
+<% @comments.each do |comment| %>
+
+Owner of the post: <%= comment.post.user.name %>
+
+Post title:  <%= comment.post.title %>
+ 
+Content: <%= comment.text %>
+<% end %>
+
+Thanks for joining and have a great day!
